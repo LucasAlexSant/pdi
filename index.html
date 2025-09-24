@@ -224,6 +224,29 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Badge Carousel Functions
+        function scrollCarousel(direction) {
+            const carousel = document.getElementById('badgesCarousel');
+            const scrollAmount = 200;
+            carousel.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        function openBadgeDetail(badgeId) {
+            const modal = document.getElementById(`badge-modal-${badgeId.slice(-1)}`);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBadgeModal() {
+            document.querySelectorAll('.badge-modal').forEach(modal => {
+                modal.classList.remove('active');
+            });
+            document.body.style.overflow = 'auto';
+        }
+
         // Fechar popover clicando fora do conteúdo
         document.querySelectorAll('.popover').forEach(popover => {
             popover.addEventListener('click', function(e) {
@@ -422,6 +445,99 @@
             padding: 30px;
         }
 
+        .self-awareness-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .strengths-card, .improvements-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .strengths-card {
+            border-left: 5px solid #27ae60;
+        }
+
+        .improvements-card {
+            border-left: 5px solid #e74c3c;
+        }
+
+        .strengths-card h3, .improvements-card h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .strength-item, .improvement-item {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .strength-item strong, .improvement-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .strength-item p, .improvement-item p {
+            color: #5a6c7d;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .feedback-section {
+            margin-top: 30px;
+        }
+
+        .feedback-section h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .feedback-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .feedback-card {
+            background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .feedback-header strong {
+            color: #2c3e50;
+        }
+
+        .feedback-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .feedback-card p {
+            color: #5a6c7d;
+            line-height: 1.6;
+            font-style: italic;
+            margin: 0;
+        }
+
         .timeline {
             position: relative;
             padding-left: 30px;
@@ -517,6 +633,175 @@
             background: linear-gradient(90deg, #FF4E08, #FF4E08);
             border-radius: 4px;
             transition: width 0.6s ease;
+        }
+
+        /* Badge Carousel Styles */
+        .badges-carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 20px;
+        }
+
+            .badge-icon img {
+            width: 100%;
+            max-width: 100px;   /* garante que não passe desse limite */
+            height: auto;
+            }
+
+            .badge-modal-icon img {
+            width: 100%;
+            max-width: 300px;   /* garante que não passe desse limite */
+            height: auto;
+            }
+        
+        .badges-carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .badges-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .badge-item {
+            min-width: 150px;
+            background: linear-gradient(135deg, #FF4E08, #FF4E08);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 78, 8, 0.3);
+        }
+
+        .badge-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 78, 8, 0.4);
+        }
+
+
+
+        .badge-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .badge-date {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .carousel-btn {
+            background: linear-gradient(135deg, #FF4E08, #FF4E08);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(255, 78, 8, 0.3);
+        }
+
+        /* Badge Detail Modal */
+        .badge-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .badge-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .badge-modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.3s ease;
+        }
+
+        .badge-modal-header {
+            background: linear-gradient(135deg, #FF4E08, #FF4E08);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .badge-modal-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .badge-modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .badge-modal-body {
+            padding: 30px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .goals-grid {
@@ -1040,7 +1325,7 @@
         <div class="profile-section">
             <div class="profile-card">
                 <div class="profile-photo">
-                    <img src="dsds(1).jpg" alt="Minha Foto">
+                    <img src="foto.jpg" alt="Minha Foto">
                     
                 </div>
                 <div class="profile-info">
@@ -1079,6 +1364,87 @@
         <div class="header">
             <h1>PDI - Plano de Desenvolvimento Individual</h1>
             <p class="subtitle">Registro de Performance e Planejamento Profissional</p>
+        </div>
+
+                <!-- Autoconhecimento -->
+        <div class="section">
+            <div class="section-header">
+                🧠 Autoconhecimento Profissional
+            </div>
+            <div class="section-content">
+                <div class="self-awareness-grid">
+                    <div class="strengths-card">
+                        <h3>💪 Pontos Fortes</h3>
+                        <div class="strength-items">
+                            <div class="strength-item">
+                                <strong>Curioso</strong>
+                                <p>Gosto de ver coisas novas e entender o que elas podem fazer</p>
+                            </div>
+                            <div class="strength-item">
+                                <strong>Capacidade Analítica</strong>
+                                <p>Facilidade para interpretar dados e identificar padrões</p>
+                            </div>
+                            <div class="strength-item">
+                                <strong>Adaptabilidade</strong>
+                                <p>Me ajusto rapidamente a novas tecnologias e processos</p>
+                            </div>
+                            <div class="strength-item">
+                                <strong>Trabalho em Equipe</strong>
+                                <p>Colaboro efetivamente com diferentes áreas e perfis</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="improvements-card">
+                        <h3>🎯 Pontos de Melhoria</h3>
+                        <div class="improvement-items">
+                            <div class="improvement-item">
+                                <strong>Documentação</strong>
+                                <p>Preciso melhorar a forma que me organizo</p>
+                            </div>
+                            <div class="improvement-item">
+                                <strong>Comunicação Técnica</strong>
+                                <p>Desenvolver habilidade para explicar conceitos complexos</p>
+                            </div>
+                            <div class="improvement-item">
+                                <strong>Auto critico</strong>
+                                <p>As vezes me cobro muito</p>
+                            </div>
+                            <div class="improvement-item">
+                                <strong>Posicionamento</strong>
+                                <p>Me posicionar mais na hora de falar e compartilhar o que penso</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feedback-section">
+                    <h3>📢 Feedbacks Recebidos</h3>
+                    <div class="feedback-cards">
+                        <div class="feedback-card">
+                            <div class="feedback-header">
+                                <strong>Gestora - Lari</strong>
+                                <span class="feedback-date">2025</span>
+                            </div>
+                            <p>""</p>
+                        </div>
+                        <div class="feedback-card">
+                            <div class="feedback-header">
+                                <strong>Colega - Ana</strong>
+                                <span class="feedback-date">2025</span>
+                            </div>
+                            <p>""</p>
+                        </div>
+                        <div class="feedback-card">
+                            <div class="feedback-header">
+                                <strong>Squad Manhattan</strong>
+                                <span class="feedback-date">2025</span>
+                            </div>
+                            <p>""</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Principais Entregas -->
@@ -1339,6 +1705,98 @@
             </div>
         </div>
 
+        <!-- Badges e Certificações -->
+        <div class="section">
+            <div class="section-header">
+                🏆 Badges e Certificações Conquistadas
+            </div>
+            <div class="section-content">
+                <div class="badges-carousel-container">
+                    <div class="badges-carousel" id="badgesCarousel">
+                        <div class="badge-item" onclick="openBadgeDetail('badge1')">
+                            <div class="badge-icon">
+                                <img src="images/badges/badge_1.png" alt="Practitioner - Generative AI">
+                            </div>
+                            <div class="badge-name">Practitioner - Generative AI</div>
+                            <div class="badge-date">Julho 2025</div>
+                        </div>
+                        <div class="badge-item" onclick="openBadgeDetail('badge2')">
+                            <div class="badge-icon">
+                                <img src="images/badges/badge_2.png" alt="Practitioner - D&A Foundation">
+                            </div>
+                            <div class="badge-name">Practitioner - D&A Foundation</div>
+                            <div class="badge-date">Julho 2025</div>
+                        </div>
+                        <div class="badge-item" onclick="openBadgeDetail('badge3')">
+                            <div class="badge-icon">
+                                <img src="images/badges/badge_3.png" alt="Associate - Generative AI">
+                            </div>
+                            <div class="badge-name">Associate - Generative AI</div>
+                            <div class="badge-date">Setembro 2025</div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev" onclick="scrollCarousel(-1)">‹</button>
+                        <button class="carousel-btn next" onclick="scrollCarousel(1)">›</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Badge Modals -->
+    <div class="badge-modal" id="badge-modal-1">
+        <div class="badge-modal-content">
+            <div class="badge-modal-header">
+                <div class="badge-modal-icon">
+                    <img src="images/badges/badge_1.png" alt="Practitioner - Generative AI">
+                </div>
+                <h2 class="badge-modal-title">Practitioner - Generative AI</h2>
+                <button class="close-btn" onclick="closeBadgeModal()">&times;</button>
+            </div>
+            <div class="badge-modal-body">
+                <p><strong>Data de Conquista:</strong> Julho 2025</p>
+                <h4>Descrição</h4>
+                <p>A pessoa que detém este Badge adquiriu os conceitos fundamentais sobre Inteligência Artificial Generativa, tanto no aspecto teórico quanto no prático. É capaz de entender os alicerces básicos da mecânica que sustenta as principais ferramentas de Inteligência Artificial Generativa, bem como compreender os seus potenciais casos de uso no âmbito social.</h4>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="badge-modal" id="badge-modal-2">
+        <div class="badge-modal-content">
+            <div class="badge-modal-header">
+                <div class="badge-modal-icon">
+                    <img src="images/badges/badge_2.png" alt="Practitioner - D&A Foundation">
+                </div>
+                <h2 class="badge-modal-title">Practitioner - D&A Foundation</h2>
+                <button class="close-btn" onclick="closeBadgeModal()">&times;</button>
+            </div>
+            <div class="badge-modal-body">
+                <p><strong>Data de Conquista:</strong> Julho 2025</p>
+                <h4>Descrição</h4>
+                <p>A pessoa que detém esta Badge possui conhecimentos básicos sobre disciplinas relacionadas a dados, tendo sido introduzida aos conceitos e termos correntes em áreas como: Modelagem de Dados, Engenharia de Dados e Analytics, Ciência de Dados, Engenharia de Machine Learning e Governança de Dados. Sendo, portanto, letrada em dados, tendo intuição sobre o ciclo do dado, desde sua aquisição e tratamento até análises avançadas, entrega contínua e geração de valor.</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="badge-modal" id="badge-modal-3">
+        <div class="badge-modal-content">
+            <div class="badge-modal-header">
+                <div class="badge-modal-icon">
+                    <img src="images/badges/badge_3.png" alt="Associate - Generative AI">
+                </div>
+                <h2 class="badge-modal-title">Associate - Generative AI</h2>
+                <button class="close-btn" onclick="closeBadgeModal()">&times;</button>
+            </div>
+            <div class="badge-modal-body">
+                <p><strong>Data de Conquista:</strong> Setembro 2025</p>
+                <h4>Descrição</h4>
+                <p>A pessoa que detém este Badge adquiriu conhecimentos detalhados a respeito das estruturas e técnicas fundamentais no contexto de IA Generativa, também as principais arquiteturas que embasam os modelos dentro desse universo, bem como sobre as soluções de bancos de dados vetoriais para o armazenamento e o processamento dos dados, estudou estratégias e metodologias capazes de promover uma engenharia de prompt mais eficiente e também diretrizes para orientar a criação de modelos de IA.</p>
+                
+            </div>
+        </div>
+    </div>
+
         <!-- Considerações Finais -->
         <div class="section">
             <div class="section-header">
@@ -1358,60 +1816,7 @@
         </div>
     </div>
 
+    
 
-    <script>
-        // Adicionar animações suaves às barras de progresso
-        window.addEventListener('load', function() {
-            const progressBars = document.querySelectorAll('.skill-progress');
-            progressBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0%';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 500);
-            });
-        });
-
-        // Salvar automaticamente as edições (simulação)
-        document.querySelectorAll('.editable').forEach(element => {
-            element.addEventListener('blur', function() {
-                // Aqui você poderia adicionar lógica para salvar as alterações
-                console.log('Conteúdo atualizado:', this.textContent);
-            });
-        });
-
-        // Funções para controlar os popovers
-        function openPopover(learningId) {
-            const popover = document.getElementById(`popover-${learningId}`);
-            popover.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePopover(learningId) {
-            const popover = document.getElementById(`popover-${learningId}`);
-            popover.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Fechar popover clicando fora do conteúdo
-        document.querySelectorAll('.popover').forEach(popover => {
-            popover.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        });
-
-        // Fechar popover com ESC
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.popover.active').forEach(popover => {
-                    popover.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                });
-            }
-        });
-    </script>
 </body>
 </html>
