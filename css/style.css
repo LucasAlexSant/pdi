@@ -9,7 +9,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #232323 0%, #232323 100%);
+    background: linear-gradient(135deg, #0B3E76 0%, #0B3E76 100%);
     min-height: 100vh;
 }
 
@@ -397,6 +397,28 @@ body {
     background: linear-gradient(90deg, #FF4E08, #FF4E08);
     border-radius: 4px;
     transition: width 0.8s ease;
+}
+
+.stat-projects {
+    color: #5a6c7d;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.stat-tools {
+    color: #3498db;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    background: rgba(52, 152, 219, 0.05);
+    padding: 8px;
+    border-radius: 8px;
+    border-left: 3px solid #3498db;
+    margin-top: 8px;
+}
+
+.stat-tools strong {
+    color: #2980b9;
 }
 
 .stat-projects {
@@ -965,5 +987,214 @@ body {
     .tech-tag {
         font-size: 0.7rem;
         padding: 3px 8px;
+    }
+}
+
+/* Plans Table Styles */
+.plans-table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background: #f8f9fa;
+}
+
+.plans-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.plans-table thead {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.plans-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.plans-table tbody tr {
+    border-bottom: 1px solid #e8e8e8;
+    transition: background-color 0.2s ease;
+}
+
+.plans-table tbody tr:hover {
+    background-color: #f0f4f8;
+}
+
+.plans-table tbody tr:last-child {
+    border-bottom: 2px solid #2c3e50;
+}
+
+.plans-table td {
+    padding: 15px;
+    font-size: 0.95rem;
+    color: #2c3e50;
+}
+
+.plan-objective {
+    font-weight: 600;
+    color: #2c3e50;
+    min-width: 180px;
+}
+
+.plan-description {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    min-width: 280px;
+}
+
+.plan-tech {
+    color: #3498db;
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-width: 200px;
+}
+
+.plan-deadline {
+    color: #e74c3c;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.plan-priority,
+.plan-status {
+    text-align: center;
+}
+
+.priority-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.priority-badge.alta {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef5350;
+}
+
+.priority-badge.media {
+    background-color: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ffb74d;
+}
+
+.priority-badge.baixa {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #66bb6a;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-badge.nao-iniciado {
+    background-color: #f5f5f5;
+    color: #666;
+    border: 1px solid #bdbdbd;
+}
+
+.status-badge.em-progresso {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid #42a5f5;
+}
+
+.status-badge.concluido {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #66bb6a;
+}
+
+.plans-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.legend-item .priority-badge,
+.legend-item .status-badge {
+    flex-shrink: 0;
+}
+
+/* Responsive Table */
+@media (max-width: 1024px) {
+    .plans-table td,
+    .plans-table th {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+    
+    .plan-description {
+        min-width: 200px;
+        font-size: 0.85rem;
+    }
+    
+    .plan-tech {
+        min-width: 150px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .plans-table-container {
+        overflow-x: auto;
+    }
+    
+    .plans-table {
+        min-width: 800px;
+    }
+    
+    .plans-table td,
+    .plans-table th {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+    
+    .plan-objective {
+        min-width: 120px;
+    }
+    
+    .plan-description {
+        min-width: 180px;
+    }
+    
+    .plans-legend {
+        grid-template-columns: 1fr;
     }
 }
