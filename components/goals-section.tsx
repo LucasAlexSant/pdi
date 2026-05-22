@@ -69,7 +69,7 @@ const goals: Goal[] = [
     technologies: "AWS SageMaker, AWS Athena, AWS Bedrock, AWS Lex",
     deadline: "Fevereiro 2026",
     priority: "alta",
-    status: "em-progresso",
+    status: "concluido",
   },
   {
     objective: "Aprendizado Continuo em IA Generativa",
@@ -77,6 +77,24 @@ const goals: Goal[] = [
       "Acompanhar avancos em IA generativa, LLMs e aplicacoes praticas com transformers e modelos pre-treinados",
     technologies: "GPT, BERT, Hugging Face, Prompt Engineering",
     deadline: "Continuo",
+    priority: "alta",
+    status: "concluido",
+  },
+  {
+    objective: "Estudo de LangGraph",
+    description:
+      "Aprender e dominar o framework LangGraph para construcao de agentes e fluxos complexos com LLMs",
+    technologies: "LangGraph, LangChain, Python, Agentes IA",
+    deadline: "Julho 2026",
+    priority: "alta",
+    status: "em-progresso",
+  },
+  {
+    objective: "Modelos de Classificacao e Regressao no Fixer",
+    description:
+      "Aplicar modelos de machine learning de classificacao e regressao dentro do contexto do Fixer para melhorar automacoes e previsoes",
+    technologies: "Scikit-Learn, XGBoost, Random Forest, Regressao Linear",
+    deadline: "Agosto 2026",
     priority: "alta",
     status: "nao-iniciado",
   },

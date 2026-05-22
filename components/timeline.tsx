@@ -38,6 +38,20 @@ const deliveries = [
     date: "Setembro 2025",
     tags: ["AWS Athena", "Gestao de Eventos", "Monitoramento"],
   },
+  {
+    title: "Democratizador de Logs",
+    description:
+      "Desenvolvimento de ferramenta para democratizar o acesso e analise de logs, facilitando a investigacao de incidentes e troubleshooting para toda a equipe.",
+    date: "Fevereiro 2026",
+    tags: ["Logs", "Observabilidade", "Python", "Automacao"],
+  },
+  {
+    title: "Resgate de Historico - Fixer Core",
+    description:
+      "Implementacao de solucao para resgate e organizacao de historico de dados no Fixer Core, permitindo analises retroativas e melhoria na gestao de conhecimento.",
+    date: "Maio 2026",
+    tags: ["Fixer Core", "Historico", "Data Engineering", "Python"],
+  },
 ];
 
 export function Timeline() {
