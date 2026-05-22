@@ -6,7 +6,7 @@ import { Briefcase, Users, Building2, Calendar } from "lucide-react";
 
 const profileDetails = [
   { label: "Cargo", value: "Estagiario", icon: Briefcase },
-  { label: "Squad", value: "Celula IA Automacao", icon: Users },
+  { label: "Squad", value: "Fixer", icon: Users },
   { label: "Comunidade", value: "Command Center", icon: Building2 },
   { label: "Periodo", value: "2026/1", icon: Calendar },
 ];
