@@ -6,6 +6,7 @@ import { SkillsSection } from "@/components/skills-section";
 import { LearningsSection } from "@/components/learnings-section";
 import { GoalsSection } from "@/components/goals-section";
 import { BadgesSection } from "@/components/badges-section";
+import { ProjectsSection } from "@/components/projects-section";
 import { FinalConsiderations } from "@/components/final-considerations";
 import { Footer } from "@/components/footer";
 
@@ -22,6 +23,7 @@ export default function PDIPage() {
         <Timeline />
         <SkillsSection />
         <LearningsSection />
+        <ProjectsSection />
         <GoalsSection />
         <BadgesSection />
         <FinalConsiderations />

@@ -33,6 +33,15 @@ const badges = [
       "Certificacao avancada em IA Generativa, demonstrando proficiencia em implementacao e desenvolvimento de solucoes com IA.",
     skills: ["IA Avancada", "Transformers", "Fine-tuning", "RAG"],
   },
+  {
+    id: "badge4",
+    name: "AWS Certified AI Practitioner",
+    date: "2026",
+    image: "/badges/badge_4.png",
+    description:
+      "Certificacao oficial da AWS que valida conhecimentos fundamentais em Inteligencia Artificial e Machine Learning na nuvem AWS.",
+    skills: ["AWS AI Services", "Machine Learning", "AI Foundations", "Cloud AI"],
+  },
 ];
 
 export function BadgesSection() {

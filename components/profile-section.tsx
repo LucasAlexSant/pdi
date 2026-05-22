@@ -8,7 +8,7 @@ const profileDetails = [
   { label: "Cargo", value: "Estagiario", icon: Briefcase },
   { label: "Squad", value: "Celula IA Automacao", icon: Users },
   { label: "Comunidade", value: "Command Center", icon: Building2 },
-  { label: "Periodo", value: "2025/2", icon: Calendar },
+  { label: "Periodo", value: "2026/1", icon: Calendar },
 ];
 
 export function ProfileSection() {

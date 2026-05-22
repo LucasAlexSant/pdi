@@ -32,8 +32,8 @@ const improvements = [
     description: "Desenvolver habilidade para explicar conceitos complexos",
   },
   {
-    title: "Auto critico",
-    description: "As vezes me cobro muito",
+    title: "Overthinking",
+    description: "Penso demais antes de agir, o que pode atrasar entregas",
   },
   {
     title: "Posicionamento",
